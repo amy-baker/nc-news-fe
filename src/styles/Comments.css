@@ -1,0 +1,12 @@
+.comment-card {
+    border: 1px solid #EEEEEE;
+    padding: 5px 10px 0px 20px;
+    margin-bottom: 10px;
+    background-color: #185251;
+}
+
+.comment-details {
+    display: flex;
+    justify-content: space-between;
+    margin-top: -15px;
+}

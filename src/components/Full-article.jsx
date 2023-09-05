@@ -4,6 +4,8 @@ import { fetchArticleById } from "../../utils/api";
 import '../styles/Article.css'
 
 
+
+
 const FullArticle = () => {
     const { article_id } = useParams();
     const [article, setArticle] = useState([]);
@@ -23,16 +25,20 @@ const FullArticle = () => {
    
 
     return(
-        <div className="full-article">
+        <article className="full-article">
+        <div className='topic-banner'>
             <p className="topic">{article.topic}</p>
-            <p className="date">{getDate(article.created_at)}</p>
+            </div>
             <h1 className="title">{article.title}</h1>
+            <div className='article-details'>
             <h3 className='author'>{article.author}</h3>
+            <h3 className="date">{getDate(article.created_at)}</h3>
+            </div>
             <img className='image'src={article.article_img_url} alt={`image related to ${article.topic}`}/>
             <p className='text'>{article.body}</p>
             <p className='votes'>{article.votes} votes</p>
             <p className='comments'>{article.commentCount} comments</p>
-        </div>
+        </article>
     )
 }
 
