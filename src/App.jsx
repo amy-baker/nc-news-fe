@@ -1,16 +1,15 @@
-import { useState, useEffect } from 'react'
 // import './styles/App.css'
-import { ReactDOM } from 'react-dom/client'
 import { Routes, Route } from 'react-router-dom';
-import Articles from '../routes/Articles';
-import Header from '../components/Header';
+import Articles from './routes/Articles';
+import Article from './routes/Article'
 
 function App() {
 
   return (
     <>
     <Routes>
-      <Route path='/Articles' element={<Articles />}></Route>
+      <Route path='/' element={<Articles />}></Route>
+      <Route path="/articles/:article_id" element={<Article />} />
     </Routes>
     </>
   )
