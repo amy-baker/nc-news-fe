@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
-import { fetchAllArticles } from "../utils/api";
-import '../src/styles/Articles.css'
+import { fetchAllArticles } from "../../utils/api";
+import '../styles/Articles.css'
+import { Link } from "react-router-dom";
 
 const ArticleList = () => {
     const [articles, setArticles] = useState([]);
@@ -20,15 +21,18 @@ const ArticleList = () => {
             {
                 articles.map((article) => {
                 return(
+                    <Link className='link' to={`/articles/${article.article_id}`}>
                     <article className='article' key={article.article_id}>
                         <h1 className='title'>{article.title}</h1>
-                        <img className='image' src={article.article_img_url} />
+                        <img className='image' src={article.article_img_url} alt={`image related to ${article.topic}`}/>
                         <p>Published {getDate(article.created_at)}</p>
                     </article>
+                    </Link>
                 )
             })}
         </section>
+        
     )
 }
 
-export default ArticleList 
+export default ArticleList

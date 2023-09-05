@@ -1,5 +1,5 @@
 import React from "react";
-import ArticleList from "../components/Individual-articles";
+import ArticleList from "../components/Article-list";
 import Header from '../components/Header';
 
 const Articles = () => {
