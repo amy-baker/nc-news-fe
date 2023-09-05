@@ -32,6 +32,12 @@ const fetchArticleById = (id) => {
     })
 }
 
+const fetchArticleComments = (id) => {
+    return axios.get(`${base_url}/articles/${id}/comments`).then((response) => {  
+        return response.data
+    })
+}
 
 
-export { fetchAllArticles, fetchTopics, fetchArticlesByTopic, fetchArticleById }
+
+export { fetchAllArticles, fetchTopics, fetchArticlesByTopic, fetchArticleById, fetchArticleComments }
