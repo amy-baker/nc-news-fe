@@ -5,10 +5,12 @@ import { Link } from "react-router-dom";
 
 const ArticleList = () => {
     const [articles, setArticles] = useState([]);
+    const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
         fetchAllArticles().then((articles) => {
             setArticles(articles)
+            setIsLoading(false);
         })
     }, []);
 
@@ -16,6 +18,11 @@ const ArticleList = () => {
         return date.substring(0, 10)
     }
 
+    if (isLoading) {
+        return(
+            <h2>Loading...</h2>
+        )
+    }
     return(
         <section className="container">
             {
