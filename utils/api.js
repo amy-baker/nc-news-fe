@@ -38,6 +38,17 @@ const fetchArticleComments = (id) => {
     })
 }
 
+const upvoteArticle = (id) => {
+    return axios.patch(`${base_url}/articles/${id}`, { inc_votes : 1 } ).then((response) => {
+        return response.data
+    })
+} 
 
+const downvoteArticle = (id) => {
+    return axios.patch(`${base_url}/articles/${id}`, {
+        inc_votes : -1 }).then((response) => {
+            return response.data
+        })
+}
 
-export { fetchAllArticles, fetchTopics, fetchArticlesByTopic, fetchArticleById, fetchArticleComments }
+export { fetchAllArticles, fetchTopics, fetchArticlesByTopic, fetchArticleById, fetchArticleComments, upvoteArticle, downvoteArticle }

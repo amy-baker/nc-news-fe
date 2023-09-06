@@ -21,13 +21,15 @@ const ArticleList = () => {
             {
                 articles.map((article) => {
                 return(
-                    <Link className='link' to={`/articles/${article.article_id}`}>
+                   
                     <article className='article' key={article.article_id}>
+                    <Link className='link' to={`/articles/${article.article_id}`}>
                         <h1 className='title'>{article.title}</h1>
                         <img className='image' src={article.article_img_url} alt={`image related to ${article.topic}`}/>
                         <p>Published {getDate(article.created_at)}</p>
+                        </Link>
                     </article>
-                    </Link>
+                    
                 )
             })}
         </section>
