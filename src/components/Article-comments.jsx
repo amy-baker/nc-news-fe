@@ -6,6 +6,7 @@ import '../styles/Comments.css'
 const Comments = () => {
     const { article_id } = useParams();
     const [comments, setComments] = useState([]);
+    
 
     useEffect(() => {
         fetchArticleComments(article_id).then((comments) => {
@@ -19,6 +20,13 @@ const Comments = () => {
         }
      }
 
+    if (comments.length === 0) {
+        return (
+            <div className="comment-section">
+                <p>No comments yet.</p>
+            </div>
+        );
+    }
     return(
         <div className="comment-section">
        

@@ -22,15 +22,15 @@ const fetchArticlesByTopic = (topic) => {
 
 const fetchArticleById = (id) => {
     return axios.get(`${base_url}/articles/${id}`).then((response) => {
-        const article = response.data.article;
+        const article = response.data.article[0]
+        return axios.get(`${base_url}/articles/${id}/comments`).then((response) => {
+            const comments = response.data;
+            article.commentCount = comments.length;
+            return article;
+        })
+    })
+    }
 
-    return axios.get(`${base_url}/articles/${id}/comments`).then((response) => {
-        const comments = response.data;
-        article.commentCount = comments.length;
-        return article;
-    })
-    })
-}
 
 const fetchArticleComments = (id) => {
     return axios.get(`${base_url}/articles/${id}/comments`).then((response) => {  
