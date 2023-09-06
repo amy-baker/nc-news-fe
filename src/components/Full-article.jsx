@@ -1,16 +1,18 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { fetchArticleById, upvoteArticle, downvoteArticle } from "../../utils/api";
+import { fetchArticleById } from "../../utils/api";
 import '../styles/Article.css'
 
 
 const FullArticle = () => {
     const { article_id } = useParams();
     const [article, setArticle] = useState([]);
+    const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
         fetchArticleById(article_id).then((response) => {
             setArticle(response);
+            setIsLoading(false)
         })
 
 
@@ -20,6 +22,12 @@ const FullArticle = () => {
        if (article.length !== 0) {
         return date.slice(0, 10)
        }
+    }
+
+    if (isLoading) {
+        return(
+            <h2>Loading...</h2>
+        )
     }
    
             return(

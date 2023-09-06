@@ -1,10 +1,13 @@
 import { useState, useEffect } from "react";
-import '../styles/Header.css'
+import '../styles/Header.css';
+import { Link } from "react-router-dom";
 
 const Header = ( {username }) => {
     return(
         <header>
+        <Link className='header-link' to="/">
             <h1 className='headerCard'>NC News</h1>
+            </Link>
             {username ? (
                 <h3 className="Acc">{username}</h3>
             ) : (
