@@ -24,7 +24,7 @@ const Article = () => {
         <Header />
         <FullArticle />
         <HandleVotes article_id={article_id} article={article} setArticle={setArticle} />
-        <Comments />
+        <Comments  article_id={article_id}/>
         </div>
     )
 }

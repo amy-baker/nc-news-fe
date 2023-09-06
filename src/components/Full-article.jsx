@@ -4,9 +4,10 @@ import { fetchArticleById } from "../../utils/api";
 import '../styles/Article.css'
 
 
+
 const FullArticle = () => {
     const { article_id } = useParams();
-    const [article, setArticle] = useState([]);
+    const [article, setArticle] = useState({});
     const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
@@ -14,14 +15,13 @@ const FullArticle = () => {
             setArticle(response);
             setIsLoading(false)
         })
-
-
     }, [article_id])
     
     const getDate = (date) => {
-       if (article.length !== 0) {
-        return date.slice(0, 10)
-       }
+        if (article && article.created_at) {
+            return date.slice(0, 10);
+        }
+        return "";
     }
 
     if (isLoading) {
@@ -29,7 +29,7 @@ const FullArticle = () => {
             <h2>Loading...</h2>
         )
     }
-   
+
             return(
         <article className="full-article">
         <div className='topic-banner'>
@@ -42,7 +42,6 @@ const FullArticle = () => {
             </div>
             <img className='image'src={article.article_img_url} alt={`image related to ${article.topic}`}/>
             <p className='text'>{article.body}</p>
-
             <p className='comments'>{article.commentCount} comments</p>
         </article>
     )
