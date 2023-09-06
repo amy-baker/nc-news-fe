@@ -15,6 +15,55 @@ body {
     justify-content: space-between;
 }
 
-.title {
+.full-title {
     margin-bottom: -10px;
 }
+
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+
+.vote-section {
+    display: flex;
+    gap: 7px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: right;
+}
+
+
+.votes {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.vote-button {
+    background-color: inherit;
+    color: #EEEE;
+    min-height: 60px;
+    min-width: 10px;
+    border: 1px;
+}
+
+.vote-button:active {
+    color: black;
+}
+
+.comment-vote-intersect {
+   display: flex;
+   justify-content: left;
+   min-width: 150px;
+   margin-top: 15px;
+}
+
+
+.same-line {
+    display: flex;
+    justify-content: space-between;
+}
+

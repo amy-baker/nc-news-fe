@@ -22,7 +22,6 @@ const Comments = () => {
     return(
         <div className="comment-section">
        
-            <h2>Comments</h2>
             {comments.map((comment) => {
                 return(
                 <section key={comment.comment_id}>
