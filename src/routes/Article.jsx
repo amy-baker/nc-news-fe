@@ -5,12 +5,16 @@ import Comments from "../components/Article-comments";
 import HandleVotes from "../components/Voting";
 import { useParams } from "react-router-dom";
 import { fetchArticleById } from "../../utils/api";
+import CommentAdder from "../components/Post-comments";
 
 
 const Article = () => {
 
     const { article_id } = useParams();
     const [article, setArticle] = useState({})
+    const [comments, setComments] = useState([]);
+    const [newComment, setNewComment] = useState("");
+    // const [submitted, setSubmitted] = useState(false);
 
 
     useEffect(() => {
@@ -24,7 +28,8 @@ const Article = () => {
         <Header />
         <FullArticle />
         <HandleVotes article_id={article_id} article={article} setArticle={setArticle} />
-        <Comments  article_id={article_id}/>
+        <CommentAdder article_id={article_id} newComment={newComment} setNewComment={setNewComment} />
+        <Comments comments={comments} setComments={setComments} />
         </div>
     )
 }
