@@ -14,7 +14,7 @@ const Article = () => {
     const [article, setArticle] = useState({})
     const [comments, setComments] = useState([]);
     const [newComment, setNewComment] = useState("");
-    // const [submitted, setSubmitted] = useState(false);
+
 
 
     useEffect(() => {
@@ -28,7 +28,7 @@ const Article = () => {
         <Header />
         <FullArticle />
         <HandleVotes article_id={article_id} article={article} setArticle={setArticle} />
-        <CommentAdder article_id={article_id} newComment={newComment} setNewComment={setNewComment} />
+        <CommentAdder article_id={article_id} newComment={newComment} setNewComment={setNewComment} setComments={setComments} />
         <Comments comments={comments} setComments={setComments} />
         </div>
     )
