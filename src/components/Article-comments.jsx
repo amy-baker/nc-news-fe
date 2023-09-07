@@ -3,17 +3,18 @@ import { useParams } from "react-router-dom";
 import { fetchArticleComments } from "../../utils/api"
 import '../styles/Comments.css'
 
-const Comments = () => {
-    const { article_id } = useParams();
-    const [comments, setComments] = useState([]);
-    
 
+const Comments = ({comments, setComments}) => {
+    const { article_id } = useParams();
+   
+
+    
     useEffect(() => {
         fetchArticleComments(article_id).then((comments) => {
             setComments(comments)
         })
     }, [article_id])
-
+    
     const getDate = (date) => {
         if (comments.length !== 0) {
          return date.slice(0, 10)
@@ -29,7 +30,6 @@ const Comments = () => {
     }
     return(
         <div className="comment-section">
-       
             {comments.map((comment) => {
                 return(
                 <section key={comment.comment_id}>
