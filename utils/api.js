@@ -55,6 +55,6 @@ const postComment = (id, comment) => {
     return axios.post(`${base_url}/articles/${id}/comments`, {username: "happyamy2016", body : comment }).then((response) => {
         return response.data
     })
-}
+} 
 
 export { fetchAllArticles, fetchTopics, fetchArticlesByTopic, fetchArticleById, fetchArticleComments, upvoteArticle, downvoteArticle, postComment }
